@@ -1,30 +1,30 @@
 import { useEffect } from 'react'
 
-const SCRIPT_ID = 'google-analytics'
-const TRACKING_ID = 'tracking-id'
+const SCRIPT_SRC_ID = 'google-analytics-src'
+const SCRIPT_INLINE_ID = 'google-analytics-inline'
 
 export const GoogleAnalytics = () => {
 	useEffect(() => {
-		if (document.getElementById(SCRIPT_ID) || document.getElementById(TRACKING_ID)) return
+		const GA_ID = import.meta.env.VITE_GOOGLE_ANALYTICS
+		if (!GA_ID) return
 
-		const script2 = document.createElement('script')
-		script2.id = TRACKING_ID
-		script2.src = `https://www.googletagmanager.com/gtag/js?id=${import.meta.env.VITE_GOOGLE_ANALYTICS}`
-		script2.async = true
-		script2.role = 'script'
-		document.head.appendChild(script2)
+		if (document.getElementById(SCRIPT_SRC_ID)) return
 
-		const script = document.createElement('script')
-		script.id = SCRIPT_ID
-		script.src = `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', ${import.meta.env.VITE_GOOGLE_ANALYTICS});
-        `
-		script.defer = true
-		script.role = 'script'
-		document.head.appendChild(script)
+		const scriptSrc = document.createElement('script')
+		scriptSrc.id = SCRIPT_SRC_ID
+		scriptSrc.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`
+		scriptSrc.async = true
+		document.head.appendChild(scriptSrc)
+
+		const scriptInline = document.createElement('script')
+		scriptInline.id = SCRIPT_INLINE_ID
+		scriptInline.innerHTML = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${GA_ID}');
+    `
+		document.head.appendChild(scriptInline)
 	}, [])
 
 	return null
