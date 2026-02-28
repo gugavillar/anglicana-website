@@ -8,7 +8,7 @@ export const GoogleAnalytics = () => {
 		const GA_ID = import.meta.env.VITE_GOOGLE_ANALYTICS
 		if (!GA_ID) return
 
-		if (document.getElementById(SCRIPT_SRC_ID)) return
+		if (document.getElementById(SCRIPT_SRC_ID) || document.getElementById(SCRIPT_INLINE_ID)) return
 
 		const scriptSrc = document.createElement('script')
 		scriptSrc.id = SCRIPT_SRC_ID
