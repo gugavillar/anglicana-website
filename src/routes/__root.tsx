@@ -42,7 +42,7 @@ export const Route = createRootRoute({
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {
-	const isProduction = import.meta.env.DEV
+	const isProduction = import.meta.env.PROD
 	return (
 		<html lang='pt-BR' suppressHydrationWarning>
 			<head>
