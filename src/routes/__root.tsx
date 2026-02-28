@@ -2,8 +2,25 @@ import { createRootRoute, HeadContent, Scripts } from '@tanstack/react-router'
 
 import '../styles.css'
 
+import { GoogleAnalytics, MicrosoftClarity } from '#/components/core'
+
 export const Route = createRootRoute({
 	head: () => ({
+		links: [
+			{
+				crossOrigin: 'anonymous',
+				href: 'https://fonts.gstatic.com',
+				rel: 'preconnect',
+			},
+			{
+				href: 'https://fonts.googleapis.com',
+				rel: 'preconnect',
+			},
+			{
+				href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap',
+				rel: 'stylesheet',
+			},
+		],
 		meta: [
 			{
 				charSet: 'utf-8',
@@ -25,6 +42,7 @@ export const Route = createRootRoute({
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+	const isProduction = import.meta.env.DEV
 	return (
 		<html lang='pt-BR' suppressHydrationWarning>
 			<head>
@@ -38,6 +56,8 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 			<body className='h-dvh w-dvw bg-background text-white antialiased'>
 				{children}
 				<Scripts />
+				{isProduction && <MicrosoftClarity />}
+				{isProduction && <GoogleAnalytics />}
 			</body>
 		</html>
 	)
