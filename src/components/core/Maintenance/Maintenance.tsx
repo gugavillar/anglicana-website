@@ -1,14 +1,24 @@
+import type { GetLiveVideoResponse } from '@/services/videos'
+
 import { Logo } from '../Logo'
 
-export const Maintenance = () => {
+type MaintenanceProps = {
+	video: GetLiveVideoResponse['items']
+}
+
+export const Maintenance = ({ video }: MaintenanceProps) => {
 	return (
-		<div className='flex size-full flex-col items-center justify-center gap-4 px-4'>
+		<div className='flex size-full flex-col items-center justify-center gap-6 px-4'>
 			<div className='flex max-w-3xl flex-col items-center justify-center gap-2'>
-				<h1 className='font-semibold text-3xl'>Estamos em manutenção</h1>
-				<h2 className='text-balance text-center text-xl'>
-					Nosso site está passando por uma atualização para ficar ainda melhor. Enquanto isso, continue acompanhando
-					tudo o que Deus tem feito em nossa igreja!
-				</h2>
+				<h1 className='mb-4 font-semibold text-3xl md:text-4xl'>Estamos em manutenção</h1>
+				<div>
+					<p className='text-balance text-center text-md leading-relaxed md:text-lg'>
+						Nosso site está passando por uma atualização para ficar ainda melhor.
+					</p>
+					<p className='text-balance text-center text-md leading-relaxed md:text-lg'>
+						Enquanto isso, continue acompanhando tudo o que Deus tem feito em nossa igreja!
+					</p>
+				</div>
 			</div>
 			<Logo height={200} width={200} />
 			<div className='flex flex-col items-center justify-center'>
@@ -22,6 +32,17 @@ export const Maintenance = () => {
 					</a>
 				</div>
 			</div>
+			{Boolean(video?.length) && (
+				<div className='flex items-center justify-center'>
+					<a
+						className='font-semibold text-red-500 text-xl'
+						href={`https://www.youtube.com/watch?v=${video[0].id.videoId}`}
+						target='_blank'
+					>
+						Estamos ao vivo!
+					</a>
+				</div>
+			)}
 		</div>
 	)
 }
