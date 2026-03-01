@@ -27,8 +27,8 @@ export const Schedules = () => {
 	return (
 		<section className='container mx-auto mt-48 px-4 pb-20' id='horários'>
 			<div className='mx-auto flex max-w-4xl flex-col items-center justify-center text-center'>
-				<Badge className='bg-white/10'>🕓 Programação</Badge>
-				<h2 className='font-bold font-display text-4xl leading-tight tracking-tight md:text-6xl lg:text-7xl'>
+				<Badge className='mb-6 bg-white/10'>🕓 Programação</Badge>
+				<h2 className='font-bold font-display text-4xl leading-tight tracking-tight md:text-5xl lg:text-6xl'>
 					Horário dos cultos
 				</h2>
 				<p className='text-lg text-white/70 sm:text-xl'>Acompanhe nossas transmissões regulares</p>
