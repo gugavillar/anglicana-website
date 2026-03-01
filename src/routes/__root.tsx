@@ -2,7 +2,7 @@ import { createRootRoute, HeadContent, Scripts } from '@tanstack/react-router'
 
 import '../styles.css'
 
-import { GoogleAnalytics, MicrosoftClarity } from '#/components/core'
+import { Footer, GoogleAnalytics, MicrosoftClarity, Navbar } from '#/components/core'
 
 export const Route = createRootRoute({
 	head: () => ({
@@ -17,7 +17,7 @@ export const Route = createRootRoute({
 				rel: 'preconnect',
 			},
 			{
-				href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap',
+				href: 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair:ital,opsz,wdth,wght@0,5..1200,87.5..112.5,700;1,5..1200,87.5..112.5,700&display=swap',
 				rel: 'stylesheet',
 			},
 		],
@@ -53,8 +53,10 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<meta content='website' property='og:type' />
 				<HeadContent />
 			</head>
-			<body className='h-dvh w-dvw bg-background text-white antialiased'>
+			<body className='bg-background text-white antialiased'>
+				<Navbar />
 				{children}
+				<Footer />
 				<Scripts />
 				{isProduction && <MicrosoftClarity />}
 				{isProduction && <GoogleAnalytics />}

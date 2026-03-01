@@ -2,8 +2,8 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-	--font-sans: Poppins, system-ui, sans-serif;
+	--font-sans: Inter, system-ui, sans-serif;
+	--font-display: Playfair, system-ui, sans-serif;
 	--color-background: #1e1e1e;
 	--color-secondary: #929aa1;
-	--font-display: "SF Pro Display", sans-serif;
 }
