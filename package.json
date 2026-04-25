@@ -48,7 +48,7 @@
 		"check-types": "tsc --noEmit",
 		"dev": "vite dev --port 3000",
 		"format": "biome format",
-		"lint": "biome lint",
+		"lint": "biome check --write",
 		"prepare": "husky",
 		"preview": "vite preview",
 		"test": "vitest run"
