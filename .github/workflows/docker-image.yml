@@ -4,11 +4,6 @@ on:
   push:
     branches:
       - "main"
-    paths:
-      - "src/**"
-      - "public/**"
-      - "Dockerfile"
-      - "package.json"
 
 jobs:
   build-and-push-dockerfile-image:
@@ -21,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -35,7 +30,7 @@ jobs:
       - name: Setup Biome
         uses: biomejs/setup-biome@v2
         with:
-          version: 2.4.13
+          version: 2.4.14
 
       - name: Run biome
         run: biome ci .

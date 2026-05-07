@@ -1,6 +1,6 @@
-FROM node:20-slim AS base
+FROM node:24-slim AS base
 WORKDIR /app
-RUN corepack enable
+RUN corepack enable && corepack prepare pnpm@10.28.0 --activate
 
 FROM base AS deps
 COPY package.json pnpm-lock.yaml ./
@@ -19,7 +19,7 @@ COPY . .
 
 RUN pnpm build
 
-FROM gcr.io/distroless/nodejs20-debian12
+FROM gcr.io/distroless/nodejs24-debian12
 
 WORKDIR /app
 ENV NODE_ENV=production
