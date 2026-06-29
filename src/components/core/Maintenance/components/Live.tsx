@@ -24,6 +24,7 @@ export const Live = ({ liveUrl }: LiveProps) => {
 						<button
 							className='inline-flex h-11 cursor-pointer items-center justify-center gap-3 whitespace-nowrap rounded-full bg-white/90 px-10 py-7 font-semibold text-black text-lg shadow-2xl transition-all hover:scale-105 hover:bg-primary/90 disabled:pointer-events-none disabled:opacity-30 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0'
 							disabled={!liveUrl}
+							type='button'
 						>
 							<Play fill='currentColor' /> Assistir agora
 						</button>

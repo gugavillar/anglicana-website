@@ -3,6 +3,7 @@ import type { ComponentProps } from 'react'
 export const Logo = (props: ComponentProps<'svg'>) => {
 	return (
 		<svg data-name='Camada 1' id='Camada_1' viewBox='0 0 1700 1700' xmlns='http://www.w3.org/2000/svg' {...props}>
+			<title>Anglicana logo</title>
 			<defs>
 				<style>{'.cls-1{fill:#FFFFFF}'}</style>
 			</defs>

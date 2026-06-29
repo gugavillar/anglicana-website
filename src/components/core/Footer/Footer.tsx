@@ -6,10 +6,10 @@ export const Footer = () => {
 					<p className='text-lg'>Acompanhe nossas redes</p>
 					<div className='flex flex-col items-center gap-8'>
 						<div className='flex items-center gap-4'>
-							<a href='https://www.instagram.com/anglicana.vida/' target='_blank'>
+							<a href='https://www.instagram.com/anglicana.vida/' rel='noopener' target='_blank'>
 								<img alt='Instagram' height={60} src='/logos/instagram.svg' width={60} />
 							</a>
-							<a href='https://www.youtube.com/@AnglicanaVida' target='_blank'>
+							<a href='https://www.youtube.com/@AnglicanaVida' rel='noopener' target='_blank'>
 								<img alt='Youtube' height={80} src='/logos/youtube.png' width={80} />
 							</a>
 						</div>
