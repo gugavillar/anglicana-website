@@ -13,7 +13,8 @@ export type GetLiveVideoResponse = {
 
 export const getLiveVideo = async (): Promise<GetLiveVideoResponse> => {
 	const res = await fetch(
-		`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${process.env.YOUTUBE_CHANNEL_ID}&type=video&eventType=live&key=${process.env.YOUTUBE_API_KEY}`
+		`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${process.env.YOUTUBE_CHANNEL_ID}&type=video&eventType=live&key=${process.env.YOUTUBE_API_KEY}`,
+		{ signal: AbortSignal.timeout(10_000) }
 	)
 	const data = await res.json()
 	return data
