@@ -1,4 +1,4 @@
-import type { GetLiveVideoResponse } from '@/services/videos'
+import type { GetLiveVideoResponse } from '@/services'
 
 import { Live } from './components/Live'
 import { Schedules } from './components/Schedules'

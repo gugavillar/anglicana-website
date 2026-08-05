@@ -1,6 +1,6 @@
 import { createMiddleware } from '@tanstack/react-start'
 
-import { getLiveVideo } from '@/services/videos'
+import { getLiveVideo } from '@/services'
 
 export const liveMiddleware = createMiddleware().server(async ({ next }) => {
 	const items = await getLiveVideo()
